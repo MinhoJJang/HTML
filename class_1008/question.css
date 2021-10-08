@@ -1,0 +1,65 @@
+.red3 {
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    float: left;
+}
+
+.green3 {
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    float: left;
+}
+
+.blue3 {
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    float: left;
+}
+
+.yellow3 {
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+    float: left;
+}
+
+/* === */
+
+.red4 {
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    float: right;
+}
+
+.green4 {
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    float: right;
+}
+
+.blue4 {
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    float: right;
+}
+
+.yellow4 {
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+    float: right;
+}
