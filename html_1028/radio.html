@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 
+		radio 버튼은 name 값이 같은 것들끼리 그룹핑이 되고,
+		그룹핑이 된 것들끼리 중에 하나를 선택 할 수 있다.
+	 -->
+	<p>
+		<input type="radio" name="color">
+		<input type="radio" name="color">
+		<input type="radio" name="color">
+		<input type="radio" name="color">
+	</p>
+	<p>
+		<input type="radio" name="color2">
+		<input type="radio" name="color2">
+		<input type="radio" name="color2">
+		<input type="radio" name="color2">
+	</p>
+	
+	
+	<form action="http://localhost/order.jsp">
+		<p>
+			<h1>색상(단일선택)</h1>
+			붉은색 : <input type="radio" name="color3" value="red">
+			파란색 : <input type="radio" name="color3" value="blue" checked>
+			검은색 : <input type="radio" name="color3" value="black">
+			초록색 : <input type="radio" name="color3" value="green">
+		</p>
+		<p>
+			<h1>사이즈(다중선택)</h1>
+			95 : <input type="checkbox" name="size" value="95">
+			100 : <input type="checkbox" name="size" value="100" checked>
+			105 : <input type="checkbox" name="size" value="105" checked>
+		</p>
+		<input type="submit">
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

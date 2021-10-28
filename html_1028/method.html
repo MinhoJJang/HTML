@@ -5,7 +5,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="http://localhost/login.jsp">
+	<!-- 
+		get 방식은 pw가 노출이 된다.
+		기본방식이 get방식
+		post 방식은 url에 정보가 노출되지 않는다.
+	 -->
+	<form action="http://localhost/mothod.jsp" method="post">
 		<p>아이디 : <input type="text" name="id"></p>
 		<p>비밀번호 : <input type="password" name="pwd"></p>
 		<p>주소 : <input type="text" name="address"></p>
@@ -13,3 +18,13 @@
 	</form>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
