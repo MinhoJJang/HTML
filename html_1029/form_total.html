@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>폼</h2>
+	<form method="post" action="http://localhost/regitst.jsp">
+		<p>아이디 : <input type="text" maxlength="20" 
+				placeholder="아이디를 입력하세요" name="userid"> </p>
+		<p>비밀번호 : <input type="password" maxlength="20"
+				placeholder="비밀번호를 입력하세요" name="userpw"> 
+		</p>
+		
+		<fieldset>
+			<legend>성별</legend>
+			<label>
+				남자<input type="radio" name="gender" value="남자" checked>
+			</label>
+			<label>
+				여자<input type="radio" name="gender" value="여자">
+			</label>
+		</fieldset>
+		
+		<fieldset>
+			<legend>좋아하는 과목</legend>
+			<label>
+				JAVA<input type="checkbox" name="subject" value="java">
+			</label>
+			<label>
+				JSP<input type="checkbox" name="subject" value="jsp" checked>
+			</label>
+			<label>
+				HTML<input type="checkbox" name="subject" value="html" checked>
+			</label>
+			<label>
+				CSS<input type="checkbox" name="subject" value="css">
+			</label>
+		</fieldset>
+		<p>
+			직업
+			<select>
+				<option value="학생">학생</option>
+				<option value="선생님">선생님</option>
+				<option value="개발자">개발자</option>
+			</select>
+		</p>
+		<p><input type="file"> </p>
+		<p>자기소개</p>
+		<p>
+			<textarea rows="5" cols="40" placeholder="자기소개를 입력하세요"></textarea>
+			<textarea rows="4" cols="50" placeholder="Describe yourself here..."></textarea>
+		</p>
+		<p>
+			우편번호 : <input type="text" >
+			<button type="button"> 우편번호 </button> 
+		</p>
+		<p>
+			주소 : <input type="text">
+		</p>
+		<p>
+			상세주소 : <input type="text">
+		</p>
+		<p>
+			참고사항 : <input type="tel">
+		</p>
+		<p>
+			<input type="reset" value="다시쓰기">
+			<input type="submit" value="확인">
+		</p>
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
