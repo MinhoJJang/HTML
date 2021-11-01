@@ -1,48 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <style>
-        /*
-            ul under li tag
-        */
-        ul li{
-            color:red
-        }
-
-        #Lecture>li{
-            border: 1px solid red;
-        }
-
-        /*  
-            ul, ol 전부
-        */ 
-        ul, ol {
-            background-color: powderblue;
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style>
+		/*
+			ul 밑에있는 li tag
+		*/
+		ul li{
+			color: red;
+		}
+		/*
+			lecture 밑에있는 li tag
+		*/
+		#lecture>li{
+			border: 1px solid red;
+		}
+		/*
+			ul,ol 모두
+		*/
+		ul, ol{
+			background-color: powderblue;
+		}
+	</style>
 </head>
 <body>
-    <ul>
-        <li>HTML</li>
-        <LI>CSS</LI>
-        <LI>JAVASCRIPT</LI>
-    </ul>
-
-    <OL>
-        <LI>HTML</LI>
-        <LI>CSS</LI>
-            <OL>
-                <LI>SELECTOR</LI>
-                <LI>DECLARATION</LI>
-            </OL>
-        <LI>JAVASCRIPT</LI>
-    </OL>
+	<ul>
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>JavaScript</li>
+	</ul>
+	<ol id="lecture">
+		<li>HTML</li>
+		<li>CSS
+			<ol>
+				<li>selector</li>
+				<li>declaration</li>
+			</ol>
+		</li>
+		<li>JavaScript</li>
+	</ol>
 </body>
 </html>
