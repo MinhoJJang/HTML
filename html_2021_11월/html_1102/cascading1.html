@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style>
+		/* 
+			!important : 우선순위가 가장 먼저 적용된다.
+			쉬운 방법이긴 하나 좋은 방법은 아니다.
+		*/
+		li{color:red !important;}
+		#idsel{ color: blue;}
+		.classsel{ color: green; }
+	</style>
+</head>
+<body>
+	<ul>
+		<li>html</li>
+<!-- 		<li id="idsel" class="classsel" style="color: orange;">css</li> -->
+		<li id="idsel" class="classsel" >css</li>
+		<li class="classsel">javascript</li>
+	</ul>
+	
+<!-- 	'구체적인 것'을 기준으로 우선순위가 정해진다. -->
+	<h1>순서</h1>
+	<ol>
+		<li>style attribute</li>
+		<li>id selector</li>
+		<li>class selector</li>
+		<li>tag selector</li>
+	</ol>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
