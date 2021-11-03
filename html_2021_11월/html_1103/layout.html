@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        header{
+            border-bottom: 1px solid gray;
+        }
+        /* nav, article, aside{
+            border: 2px solid gray;
+        } */
+        nav{
+            float: left;
+            height: 400px;
+            width: 120px;
+            border-right: 1px solid gray;
+            padding: 0px;
+        }
+        article{
+            float: left;
+            width: 300px;
+            height: 400px;
+            border-left: 1px solid gray;
+            border-right: 1px solid gray;
+            margin-left: -1px;
+            padding: 20px;
+        }
+        aside{
+            float: left;
+            width: 120px;
+            /* border-left: 1px solid gray; */
+            margin-left: -1px;
+            padding: 20px;
+        }
+        footer{
+            clear: both; 
+            /* clear: both을 넣으면, 종속적이지 않게된다. */
+            border-top: 1px solid gray;
+            text-align: center;
+            padding: 20px;
+        }
+        .container{
+            width: 640px;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <header>
+        <h1>CSS</h1>    
+    </header>
+    <nav>
+        <ul>
+            <li>position</li>
+            <li>float</li>
+            <li>flex</li>
+        </ul>
+    </nav>
+    <article>
+        <h2>float</h2>
+        
+        <div>
+            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
+        </div>
+    </article>
+    <aside>
+        ad
+    </aside>
+    <footer>
+        Copyleft
+    </footer>
+</div>
+</body>
+</html>
