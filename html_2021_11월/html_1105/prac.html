@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* function get_member1(){
+            return 'javascript';
+            return 'test';
+            return 'user';
+        }
+        alert(get_member1()); */
+
+        function get_arg(arg1, arg2){
+            return arg1 + arg2;
+        }
+
+        //alert(get_arg(prompt(), prompt()));
+        // 문자 연결
+
+        var num1 = prompt("첫번째 숫자 입력");
+        var num2 = prompt("두번째 숫자 입력");
+
+        num1 = Number(num1);
+        num2 = Number(num2);
+
+        alert(get_arg(num1,num2));
+
+    </script>
+</body>
+</html>
