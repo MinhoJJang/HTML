@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var vscope = 'global';
+		
+		function fscope(){
+			var vscope = 'local';
+			alert('함수안 호출 ' + vscope);
+		}
+		fscope();
+		alert('함수밖 호출 ' + vscope);
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
