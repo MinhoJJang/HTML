@@ -5,9 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            background-color: black;
+            color: beige;
+        }
+        
+    </style>
 </head>
 <body>
-    <p id="target">Cording everybody!</p>
+    <p id="target">Coding everybody!</p>
 	<p> data : <input type="text" id="datasource"
 		value="javaScript"></p>
 	<p> start : <input type="text" id="start"
@@ -20,10 +27,40 @@
 		onclick="callDeleteData()"/>
 	<input type="button" value="insertData(data)"
 		onclick="callInsertData()"/>
-	<input type="button" value="reaplaceData(data)"
-		onclick="callReaplaceData()"/>
+	<input type="button" value="replaceData(data)"
+		onclick="callReplaceData()"/>
 	<input type="button" value="substringData(data)"
 		onclick="callSubstringData()"/>	
 	</p>	
+
+    <script>
+        let target = document.getElementById('target').firstChild;
+        let data = document.getElementById('datasource');
+        let start = document.getElementById('start');
+        let end = document.getElementById('end');
+
+        function callAppendData(){
+            target.appendData(data.value);
+            // 문자열 뒤에서 data값을 붙임 
+        }
+        function callDeleteData(){
+            target.deleteData(start.value, end.value);
+            // start지점 다음부터 end.value개수만큼 삭제
+        }
+        function callInsertData(){
+            target.insertData(start.value, data.value);
+            // start지점 다음부터 data.value를 중간에 삽입
+        }
+        function callReplaceData(){
+            target.replaceData(start.value, end.value, data.value);
+
+        }
+        function callSubstringData(){
+            alert(target.substringData(start.value, end.value));
+        }
+
+
+
+    </script>
 </body>
 </html>
