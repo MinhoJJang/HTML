@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="result.html", id="nametag">
+        <label for="name">name</label>
+        <input id="name" type="name">
+        <input type="submit" value="submit button">
+    </form>
+
+    <script>
+        let t = document.getElementById('nametag');
+        t.addEventListener('submit', function(event){
+            
+            if(document.getElementById('name').value.length === 0){
+                // 만약 이름값에 아무런 값이 들어가 있지 않다면,
+                alert("이름을 입력해주세요");
+                event.preventDefault();
+                // 이벤트 동작의 취소기능. 
+            }
+            else{
+                alert(document.getElementById('name').value);
+            }
+        })
+    </script>
+
+</body>
+</html>
