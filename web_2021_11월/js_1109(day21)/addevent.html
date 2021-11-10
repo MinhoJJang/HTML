@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<input type="button" id="target" value="button1">
+	<input type="button" id="target" value="button">
+	<!-- 만약 이런식으로 같은 id를 가진 버튼이 두개가 생기면 위에 버튼만 활성화됨. -->
+
+	<script>
+		let t = document.getElementById('target');
+		t.addEventListener('click',function(eve){
+			// alert('hello javascript');
+			console.dir(eve.target.type);
+			console.dir(eve.target.id);
+			console.dir(eve.target.value);
+
+			console.dir(eve);
+			// 모든 출력가능한 이벤트 종류를 보여줌
+		});
+	</script>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
