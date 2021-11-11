@@ -35,18 +35,33 @@
         //     }
         // });
 
-        var idCheck = function idCheck(e){
-            if(document.getElementById('prevent').checked){
-                e.preventDefault();
-            }
-        };
+        // var idCheck = function idCheck(e){
+        //     if(document.getElementById('prevent').checked){
+        //         e.preventDefault();
+        //     }
+        // };
 
-        function mainfn(tag,action) {
-            document.querySelector(tag).addEventListener(action, idCheck);
-        };
+        // function mainfn(tag,action) {
+        //     document.querySelector(tag).addEventListener(action, idCheck);
+        // };
 
-        mainfn('a','click');
-        mainfn('form','click');
+        // mainfn('a','click');
+        // mainfn('form','click');
+
+        function idCheck(e, checkid){ 
+             console.log(checkid);
+        //    if(document.getElementById(checkid).checked){ 
+        //         e.preventDefault(); 
+        //     } 
+         }; 
+        
+        function mainfn(tag,action,checkid) { 
+            console.log(checkid);
+            document.querySelector(tag).addEventListener(action, idCheck(checkid)); 
+        }; 
+        
+        mainfn('a','click','prevent'); 
+        //mainfn('form','click','prevent'); 
 
             
     </script>
