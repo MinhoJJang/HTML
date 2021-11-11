@@ -23,39 +23,33 @@
     </p>
 
     <script>
-
-        // document.querySelector('a').onclick 
-        //     = function(event){
+        // document.querySelector('a').addEventListener('click', function(event){
         //     if(document.getElementById('prevent').checked){
-        //         return false;
+        //         event.preventDefault();
         //     }
-        // }
+        // });
 
-        // document.querySelector('form').onclick 
-        //     = function(event){
+        // document.querySelector('form').addEventListener('click', function(event){
         //     if(document.getElementById('prevent').checked){
-        //         return false;
+        //         event.preventDefault();
         //     }
-        // }
+        // });
 
-        var event_function = function(event){
+        var idCheck = function idCheck(e){
             if(document.getElementById('prevent').checked){
-                return false;
+                e.preventDefault();
             }
-        }
+        };
 
-        function fn(inputTag){
-            document.querySelector(inputTag).onclick = event_function;
-        } 
+        function mainfn(tag,action) {
+            document.querySelector(tag).addEventListener(action, idCheck);
+        };
 
-        fn('a');
-        fn('form');
+        mainfn('a','click');
+        mainfn('form','click');
 
-        
-
-
-
+            
     </script>
-</body>
 
+</body>
 </html>
