@@ -17,7 +17,7 @@
         <!-- 체크되어있으면 true리턴. 즉, document.getElementById('prevent').checked 이 구문이 true이므로 if문 내부를 타게 되서 false를 리턴하는 것임 -->
     </p>
     <p>
-        <form action="http://www.naver.com">
+        <form action="">
             <input type="submit">
         </form>
     </p>
@@ -35,45 +35,34 @@
         //     }
         // });
 
-        let idCheck = function idCheck(e){
-            if(document.getElementById('prevent').checked){
-                e.preventDefault();
+        var check = function idCheck(e){
+            console.log(id);
+            if(document.getElementById(id).checked){
+                e.preventDefault();          
             }
         };
 
-        function mainfn(tag,action) {
-            document.querySelector(tag).addEventListener(action, idCheck);
+        function mainfn(tag,action,id) {
+            let idName = document.getElementById(id);
+            console.log(idName);
+            document.querySelector(tag).addEventListener(action, idcheck(id));
         };
 
-        mainfn('a','click');
-        mainfn('form','click');
-        // var idCheck = function idCheck(e){
-        //     if(document.getElementById('prevent').checked){
-        //         e.preventDefault();
-        //     }
-        // };
+        //mainfn('a','click','prevent');
+        mainfn('form','click','prevent');
 
-        // function mainfn(tag,action) {
-        //     document.querySelector(tag).addEventListener(action, idCheck);
-        // };
-
-        // mainfn('a','click');
-        // mainfn('form','click');
-
-        function idCheck(e, checkid){ 
-             console.log(checkid);
-        //    if(document.getElementById(checkid).checked){ 
-        //         e.preventDefault(); 
-        //     } 
-         }; 
+        // // 이거는 된다.
+        // function mainfn(tag,action,id) { 
+        //     console.log(id);
+        //     document.querySelector(tag).addEventListener(action, function(e){    
+        //         if(document.getElementById(id).checked){
+        //             e.preventDefault(); 
+        //         } 
+        //     }); 
+        // }; 
         
-        function mainfn(tag,action,checkid) { 
-            console.log(checkid);
-            document.querySelector(tag).addEventListener(action, idCheck(checkid)); 
-        }; 
-        
-        mainfn('a','click','prevent'); 
-        //mainfn('form','click','prevent'); 
+        // mainfn('a','click','prevent'); 
+        // mainfn('form','click','prevent'); 
 
             
     </script>
