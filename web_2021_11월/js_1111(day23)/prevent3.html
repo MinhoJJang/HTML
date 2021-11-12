@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <p>
         <label>prevent event on</label>
         <input id="prevent" type="checkbox">
+      
     </p>
 
     <p>
@@ -17,12 +20,13 @@
         <!-- 체크되어있으면 true리턴. 즉, document.getElementById('prevent').checked 이 구문이 true이므로 if문 내부를 타게 되서 false를 리턴하는 것임 -->
     </p>
     <p>
-        <form action="">
-            <input type="submit">
-        </form>
+    <form action="">
+        <input type="submit">
+    </form>
     </p>
 
     <script>
+        // 기본형태 
         // document.querySelector('a').addEventListener('click', function(event){
         //     if(document.getElementById('prevent').checked){
         //         event.preventDefault();
@@ -35,9 +39,9 @@
         //     }
         // });
 
-
-    //// 이게왜안될까
-        // var check = function idCheck(e){
+// 코드변환 
+        //// 이게왜안될까
+        // var check = function idcheck(e){
         //     console.log(id);
         //     if(document.getElementById(id).checked){
         //         e.preventDefault();          
@@ -50,24 +54,56 @@
         //     document.querySelector(tag).addEventListener(action, idcheck(id));
         // };
 
-        // //mainfn('a','click','prevent');
+        // mainfn('a','click','prevent');
         // mainfn('form','click','prevent');
 
-    // 이거는 된다.
-        function mainfn(tag,action,id) { 
-            console.log(id);
-            document.querySelector(tag).addEventListener(action, function(e){    
-                if(document.getElementById(id).checked){
-                    e.preventDefault(); 
-                } 
-            }); 
-        }; 
-        
-        mainfn('a','click','prevent'); 
-        mainfn('form','click','prevent'); 
 
-            
+    // 얘는 왜안될까? 
+        function idCheck(e, checkid) {
+            console.log(checkid);
+            let str = checkid;
+            console.log(e);
+            console.log(document.getElementById(checkid).checked);
+            // 여기까지 콘솔에 정상으로 출력됨
+            // 아래 if문을 타지 않는다는 소리인데... 
+                if (document.getElementById(checkid).checked == false) {
+                    // 강제로 if문 내부로 진입해 보니 오류 발생
+                    // Cannot read properties of undefined (reading 'preventDefault')
+                    console.log(checkid);
+                    //e.stopPropagation();
+                    e.preventDefault();
+                };
+            }
+
+            function mainfn(tag, action,checkid) {
+                console.log(checkid);
+                document.querySelector(tag).addEventListener(action, idCheck(event,checkid));
+            };
+
+            mainfn('a', 'click', 'prevent');
+            mainfn('form','click','prevent');
+
+
+    // 이거는 된다.
+    // 다만 함수 내부에 함수가 있으므로 SOLID를 어기게 된다. 
+    // function(e) 를 변경하려고 하면 mainfn도 같이 고쳐버려야 하니까....
+    // 의문: addEventListener에서, event를 파라미터로 받는 함수는 조금 특별한가? event말고 다른 파라미터값을 받을 수 없는가? 실제로 아래 코드에서 function(e,id) 이런식으로 만들면 바로 오류가 난다. 
+        // function mainfn(tag,action,id) { 
+        //     console.log(id);
+           
+        //     document.querySelector(tag).addEventListener(action, function(e){    
+        //         if(document.getElementById(id).checked){
+        //             e.preventDefault(); 
+        //         } 
+        //     }); 
+        // }; 
+
+        // mainfn('a','click','prevent'); 
+        // mainfn('form','click','prevent'); 
+
+
     </script>
 
 </body>
+
 </html>
