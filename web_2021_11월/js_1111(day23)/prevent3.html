@@ -49,28 +49,28 @@
             console.log(document.getElementById(checkid).checked);
             // 여기까지 콘솔에 정상으로 출력됨
             // 아래 if문을 타지 않는다는 소리인데... 
-                if (document.getElementById(checkid).checked == false) {
-                    // 강제로 if문 내부로 진입해 보니 오류 발생
-                    // Cannot read properties of undefined (reading 'preventDefault')
-                    console.log(checkid);
-                    //e.stopPropagation();
-                    e.preventDefault();
-                };
-            }
-
-            function mainfn(tag, action,checkid) {
+            if (document.getElementById(checkid).checked == false) {
+                // 강제로 if문 내부로 진입해 보니 오류 발생
+                // Cannot read properties of undefined (reading 'preventDefault')
                 console.log(checkid);
-                document.querySelector(tag).addEventListener(action, idCheck(event,checkid));
+                //e.stopPropagation();
+                e.preventDefault();
             };
+        }
 
-            mainfn('a', 'click', 'prevent');
-            mainfn('form','click','prevent');
+        function mainfn(tag, action,checkid) {
+            console.log(checkid);
+            document.querySelector(tag).addEventListener(action, idCheck(event,checkid));
+        };
+
+        mainfn('a', 'click', 'prevent');
+        mainfn('form','click','prevent');
 
 
     // 이거는 된다.
-    // 다만 함수 내부에 함수가 있으므로 SOLID를 어기게 된다. 
-    // function(e) 를 변경하려고 하면 mainfn도 같이 고쳐버려야 하니까....
-    // 의문: addEventListener에서, event를 파라미터로 받는 함수는 조금 특별한가? event말고 다른 파라미터값을 받을 수 없는가? 실제로 아래 코드에서 function(e,id) 이런식으로 만들면 바로 오류가 난다. 
+    // 의문1: 이런식의 코드작성은 SOLID를 어기는 것인가? 
+    // 의문2: addEventListener에서, event를 파라미터로 받는 함수는 조금 특별한가? 즉, event말고 다른 값을 추가로 받을 수 없는가? 실제로 아래 코드에서 function(e,id) 이런식으로 만들면 바로 오류가 난다. 
+
         // function mainfn(tag,action,id) { 
         //     console.log(id);
            
