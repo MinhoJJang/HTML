@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<input id="user" type="text">
+	<p id="result"></p>
+	<script>
+		let u = document.getElementById('user');
+		u.addEventListener('blur', function(event) {
+			console.log('blur');
+			document.getElementById('result').innerHTML = 'blur';
+		});
+		u.addEventListener('focus', function(event) {
+			console.log('focus');
+			document.getElementById('result').innerHTML = 'focus';
+		});
+	
+	</script>
+</body>
+</html>
