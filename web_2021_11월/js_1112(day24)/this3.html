@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let thisValue = null;
+
+        // 함수로써 호출될 때와, 생성자로써 호출될 때 각기 다른 내용으로 호출됨. 
+        function Func(){           
+            thisValue = this;     
+        }
+
+        // case 1 = 함수로써 호출되었을 때 
+        let o1 = Func();
+        if(thisValue === window){
+            document.write('window<br>');
+            // window 
+        }
+
+        // case 2 = o2가 Func()의 인스턴스일때... 
+        // new로 객체 생성시 새로 생성되는 객체가 this가 되는 것임. 
+        let o2 = new Func();
+        if(thisValue === o2){
+            document.write('o2<br>');
+            // o2 
+        }
+
+    </script>
+</body>
+</html>

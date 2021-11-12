@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 생성자 함수는 일반함수와 구분하기 위해서 첫글자를 대문자로 표시한다 
+        function Person(name){      
+            this.name = name;
+            this.introduce = function(){
+                return 'My name is '+ this.name;
+            }
+        }
+
+        let p1 = new Person('mhj');
+        //document.write(p1.introduce());
+
+        class People {
+            name = 'mhj';
+            age = '21';
+            introduce = function(){
+                return this.name + this.age;
+            }
+        }
+
+        let peo1 = new People;
+        document.writeln(peo1.introduce());
+
+        class student extends People {
+            name = 'jjb';
+            grade = '2';
+            introduce = this.name + super.age + this.grade;
+        }
+
+        let s1 = new student;
+        document.write(s1.introduce);
+
+
+    </script>
+</body>
+</html>

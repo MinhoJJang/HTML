@@ -42,10 +42,10 @@
 // 코드변환 
 
     // 얘는 왜안될까? 
-        function idCheck(e, checkid) {
+        function idCheck(event, checkid) {
             console.log(checkid);
             let str = checkid;
-            console.log(e);
+            console.log(event);
             console.log(document.getElementById(checkid).checked);
             // 여기까지 콘솔에 정상으로 출력됨
             // 아래 if문을 타지 않는다는 소리인데... 
@@ -54,7 +54,7 @@
                 // Cannot read properties of undefined (reading 'preventDefault')
                 console.log(checkid);
                 //e.stopPropagation();
-                e.preventDefault();
+                event.preventDefault();
             };
         }
 
@@ -63,7 +63,7 @@
             document.querySelector(tag).addEventListener(action, idCheck(event,checkid));
         };
 
-        mainfn('a', 'click', 'prevent');
+        mainfn('a', 'click','prevent');
         mainfn('form','click','prevent');
 
 
