@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		 function Person(name){
+			 this.name = name;
+		 }
+		 
+		 Person.prototype.introduce = function(){
+			 return 'My name is ' + this.name;
+		 }
+		 
+		 function Programmer(name){
+			 this.name = name;
+		 }
+		 
+		 // 상속
+		 Programmer.prototype = new Person();
+		 
+		 let p1 = new Programmer('kjh');
+		 document.write(p1.introduce());
+	
+	
+	</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
