@@ -1,4 +1,6 @@
-# HTML
+# Web Study
+
+learned Html, Css, Js
  
 Start 21.10.07
 
