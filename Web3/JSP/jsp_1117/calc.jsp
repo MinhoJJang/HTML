@@ -12,14 +12,16 @@
 	int res = 0;
 	
 	if(request.getMethod().equals("POST")){
-	// application, out, session, request, response == 내장객체 
+	// application, out, session, request, response == 내장객체
+	// 따라서 객체의 메서드들을 사용할 수 있다. 
 	int num1 = Integer.parseInt(request.getParameter("num1"));
 	// 형변환을 해야하는데 대상이 null이다 
 	// num1이라는 이름의 파라미터가 없음 
 	
 	// int num = 10+2*3; // 16 
 	// 우선순위에 대해 알아보자
-	// "num1" 이라는 값이 들어온 이후에야 계산을 할 수 있다는 의미임. 
+	// "num1" 이라는 값이 들어온 이후에야 계산을 할 수 있다는 의미임.
+	// 즉.. 여기에서 반드시 
 	
 	int num2 = Integer.parseInt(request.getParameter("num2"));
 	String op = request.getParameter("op");

@@ -1,4 +1,4 @@
-package day01;
+package jsp_1115;
 
 import java.io.IOException;
 import java.io.PrintWriter;
