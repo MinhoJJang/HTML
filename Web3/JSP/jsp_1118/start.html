@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form action="end.jsp" method="post">
+	<table border="1">
+		<tr>
+			<td>ID</td>
+			<td><input type="text" name="uid"></td>
+		</tr>
+		<tr>
+			<td>관심언어</td>
+			<td><select name="ln">
+				<option selected>C언어</option>
+				<option>파이썬</option>
+				<option>Java</option>
+				<option>JSP</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td>좋아하는 과일</td>
+			<td><input type="checkbox" name="ff" value="사과">사과
+			<input type="checkbox" name="ff" value="바나나">바나나
+			<input type="checkbox" name="ff" value="키위">키위</td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" value="보내기"></td>
+		</tr>
+	</table>
+</form>
+
+</body>
+</html>
