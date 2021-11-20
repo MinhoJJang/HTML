@@ -155,54 +155,47 @@ data는 <%=request.getParameter("data")%> 입니다.
 
 ## session 
 
+session 은 브라우저 단위로 데이터를 저장한다. 즉 브라우저가 열려져 있는 동안은 데이터가 지속된다. 기본 세션 지속시간은 30분이다.  
 
-
-
-
-
-
-
-
-
-
-
-
-
+[session.jsp](session.jsp)
+```jsp
+<%
+	if(session.isNew()){
+		// session 이 새로 만들어졌다면 if문 내부로 들어온다. 
+		out.println("<script>alert('새로운 세션!')</script>");
+		session.setMaxInactiveInterval(10);
+		// 클라이언트가 x 초 동안 요청이 없으면 세션을 제거한다. 
+		session.setAttribute("user", "유저1"); 
+	}
+%>
+<h1>브라우저 단위로 데이터를 저장하는 session 내장객체</h1>
+<%=session.getAttribute("user")%>님, 환영합니다!
 ```
-[내장객체]
- JSP ---> Servlet파일로 변환
-	application,session,out,request,...
- 내장객체들은 주로 데이터를 주고받을때 사용됨
 
-1. request
-이전페이지->다음페이지
+이렇게 만들게 되면, `session.jsp` 를 실행시키고 나서 다른 웹페이지를 돌아다니다가 다시 온다고 해도 데이터가 유지된다. 데이터가 유지되는 시간은 `session.setMaxInactiveInterval(second);` 을 통해 늘리거나 줄일 수 있다. 이러한 session의 특성상 보안이 필요한 사이트에서 종종 사용된다. 
 
-2. response
-response.sendRedirect("z.jsp");
-요청헤더(==데이터)를 교체해버림
+## application 
 
-★정보 유지 범위 scope
- - 정확하게 범위세팅하는것은 중요!
- - 장바구니: localxxx
-	   로그인을 해서 이용하는 경우, 사용자에게 설정
-	   실수로 창을 닫아버림....헉.......
-	   유지가 안되는경우도있음...... == 브라우저 범위
+application의 경우, 서버 scope를 갖고 있으며 scope범위가 가장 크다. 즉, 서버가 꺼지기 전까지는 데이터가 계속 유지된다. 그러나 데이터가 계속 유지되면 웹사이트가 무거워질 수 있으므로, 적합한 scope에 적절한 data를 넣는 것이 가장 중요할 것이다. 
 
-3. session
-브라우저 단위로 데이터 유지
-ex) 로그인,장바구니,커피 어플 등에 사용됨
+[application.jsp](application.jsp)
+```jsp
+<%
+	application.setAttribute("uname", "홍길동");
+	application.setAttribute("cnt", 1);
+%>
+<a href="applicationEnd.jsp">결과는?</a>
+```
 
+[application.jsp](application.jsp)
+```jsp
+<%
+	int cnt=(Integer)application.getAttribute("cnt");
+	cnt++;
+	application.setAttribute("cnt", cnt); // 데이터의 변경사항이 유지됨
+%>
 
-4. application
-서버 scope
+<%=application.getAttribute("uname")%>님, 투데이 방문자수는 <%=cnt%>명입니다!
+```
 
-
-
-☆ 장바구니
-☆ SNS
-
-
-
-
-
-
+이렇게 만들게 되면 Tomcat Server 을 켠 이후, 브라우저를 닫고 열어도 투데이 방문자수가 계속 늘어난다. 하지만 Server 을 정지시키고 다시 실행하면 cnt가 초기화된 모습을 볼 수 있다. 
