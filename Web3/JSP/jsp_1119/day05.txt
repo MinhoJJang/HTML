@@ -1,0 +1,67 @@
+﻿session 브라우저 scope
+application 서버 scope
+	HTTP프로토콜
+	비연결형
+	클라이언트의 요청으로
+	서버에서 페이지를 출력해준다면,
+	연결이 끊어짐
+
+Bean이야기!~~~
+Beans 빈즈
+	특정기능을 수행하는 컴포넌트
+	CRUD		객체==POJO
+	비즈니스 메서드
+	Model파트에서 주로 활용함
+	Model 		View(사용자,클라이언트가 보는 환경)		 Controller
+		=> "유지보수 용이" == 협업이 용이 == 기업이 좋아함...
+	DB-테이블+칼럼
+	Java-컬렉션,CRUD-DAO+객체-VO
+
+class Student{
+	int pk;
+	String name;
+	String add;
+	int score;
+}
+
+빈즈 구조
+	기본생성자를 사용
+	 이후 멤버변수들에 값을 setter로 처리
+	 자동setter기능을 제공하는 JSP
+	   name속성==멤버변수명 -> 값이 null인것은 에러가아니다!
+	private멤버변수 + setter,getter
+
+<jsp:useBean id="lb" class="day05.LoginBean" />
+<jsp:setProperty property="*" name="lb"/>
+<%
+  LoginBean lb=(LoginBean)request.getAttribute("lb");
+  if(lb==null){
+	lb=new LoginBean();
+	request.setAttribute("lb",lb);
+  }
+
+  lb.setUid(request.getParameter("uid"));
+  lb.setUpw(request.getParameter("upw"));
+%>
+<jsp:getProperty property="uid" name="lb"/> <br>
+<jsp:getProperty property="upw" name="lb"/>
+lb.getUid()
+lb.getUpw()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
