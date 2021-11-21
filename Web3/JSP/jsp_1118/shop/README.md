@@ -66,6 +66,7 @@
 
 	ArrayList<String> datas = (ArrayList)session.getAttribute("datas");
     // ArrayList를 사용해 장바구니를 만들 것이다. 당연히 import는 앞에서 해준다.
+    // 이때 session.getAttribute(name); 은 기본적으로 Object 타입이므로 적절히 형변환을 해주어야 한다.
 
 	if(datas==null){
 		datas = new ArrayList<String>();
