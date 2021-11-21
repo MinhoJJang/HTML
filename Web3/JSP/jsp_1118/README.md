@@ -198,4 +198,5 @@ application의 경우, 서버 scope를 갖고 있으며 scope범위가 가장 �
 <%=application.getAttribute("uname")%>님, 투데이 방문자수는 <%=cnt%>명입니다!
 ```
 
-이렇게 만들게 되면 Tomcat Server 을 켠 이후, 브라우저를 닫고 열어도 투데이 방문자수가 계속 늘어난다. 하지만 Server 을 정지시키고 다시 실행하면 cnt가 초기화된 모습을 볼 수 있다. 
+이렇게 만들게 되면 Tomcat Server 을 켠 이후, 브라우저를 닫고 열어도 투데이 방문자수가 계속 늘어난다. 하지만 Tomcat Server 을 정지시키고 다시 실행하면 cnt가 초기화된 모습을 볼 수 있다. 
+

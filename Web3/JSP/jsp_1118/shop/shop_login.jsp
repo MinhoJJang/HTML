@@ -9,9 +9,9 @@
 <body>
 	<h1> 로그인페이지	</h1>
 	<form action="shop_product.jsp" method="post">
+		<!-- action:  -->
 		<input type="text" name="uid">
 		<input type="submit" value="로그인하기">
 	</form>
-	
 </body>
 </html>
