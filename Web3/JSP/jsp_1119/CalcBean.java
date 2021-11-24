@@ -1,8 +1,24 @@
+package jsp_1119;
+
 public class CalcBean {
+
     private int x;
     private int y;
+    private String op;
     private int res;
 
+    public String getOp() {
+        return op;
+    }
+    public void setOp(String op) {
+        this.op = op;
+    }
+    public int getRes() {
+        return res;
+    }
+    public void setRes(int res) {
+        this.res = res;
+    }
     public int getX() {
         return x;
     }
@@ -16,11 +32,13 @@ public class CalcBean {
         this.y = y;
     }
     
-    public int getResult(){
-
-        res = getX()+getY();
-
-        return res;
+    public void Calc(){
+        if(op.equals("+")){
+            res = x + y;
+        }
+        else {
+            res = x - y;
+        }
     }
 
 }
