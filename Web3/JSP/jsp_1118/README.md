@@ -11,7 +11,6 @@ JSP 파일은 결국 Servlet 파일로 변환된다. 이때 **application, sessi
 
 ## request
 
-[start.html](start.html)
 ```html
 <form action="end.jsp" method="post">
 	<!-- form의 action을 end.jsp로 해주고 데이터를 서버로 전송하기 위해 post를 사용함 -->
@@ -51,7 +50,6 @@ JSP 파일은 결국 Servlet 파일로 변환된다. 이때 **application, sessi
 
 그렇다면 submit을 통해 전송된 form내부 정보들을 어떻게 이용할 수 있을까? end.jsp를 살펴보자,
 
-[end.jsp](end.jsp)
 ```jsp
 <table border="1">
 		<tr>
@@ -92,7 +90,6 @@ JSP 파일은 결국 Servlet 파일로 변환된다. 이때 **application, sessi
 
 먼저, a.jsp에서 action을 위해 to1.jsp, to2.jsp 파일을 만든다. 그리고 그 파일 안에서 어차피 페이지 주도권을 z.jsp에 줄 것이기 때문에 기타 html 태그가 전혀 의미가 없다. 따라서 html 관련 태그는 전부 삭제한다. 
 
-[a.jsp](a.jsp)
 ```html
 <form action="to1.jsp" method="post">
 	<input type="text" name="data">
@@ -105,14 +102,12 @@ JSP 파일은 결국 Servlet 파일로 변환된다. 이때 **application, sessi
 </form>
 ```
 
-[to1.jsp](to1.jsp)
 ```jsp
 <%
 	response.sendRedirect("z.jsp");
 	// 페이지 제어권을 z.jsp로 넘겨줌
 %>
 ```
-[to2.jsp](to1.jsp)
 ```jsp
 <jsp:forward page="z.jsp">
 	<jsp:param value="abc" name="data2"/>
@@ -121,7 +116,6 @@ JSP 파일은 결국 Servlet 파일로 변환된다. 이때 **application, sessi
 
 to1.jsp와 to2.jsp는 기능페이지이다. 예를 들어 무언가를 예약하고 싶어서 예약 버튼을 누르면 잠시 로딩을 하다가 예약이 완료되었다는 결과 페이지로 넘어간다. 여기서 잠시 로딩을 하는 페이지가 바로 이러한 기능 페이지이다. 즉, ***사용자의 눈에는 보일 필요가 없으며 필요한 기능만 처리하는 페이지***인 것이다. 
 
-[z.jsp](z.jsp)
 ```jsp
 <body>
 data는 <%=request.getParameter("data")%> 입니다.
@@ -133,7 +127,7 @@ data는 <%=request.getParameter("data")%> 입니다.
 
 ***
 
-[z.jsp](z.jsp) 에서 `request.getParameter("data")` 의 `request` 라는 내장객체는 **이전페이지에서 다음 페이지로 갈 때까지만 유효**하다. 더 정확히 말하자면, `request` 객체는 ***요청 페이지로부터 전송된 데이터를 응답 페이지에서 사용할 수 있게 하는 것*** 이다. 그렇기 때문에 `a.jsp` 에서 분명히 data 라는 이름의 input tag가 있었음에도 불구하고, 그 정보는 응답 페이지 `to1.jsp` 를 지나고 난 뒤에는 request로 불러올 수 없기 때문에 `data는 null 입니다` 라는 문구가 뜬다. null인 이유는 `z.jsp`에서 data라는 이름의 parameter 값이 *없기* 때문이다. 
+[z.jsp] 에서 `request.getParameter("data")` 의 `request` 라는 내장객체는 **이전페이지에서 다음 페이지로 갈 때까지만 유효**하다. 더 정확히 말하자면, `request` 객체는 ***요청 페이지로부터 전송된 데이터를 응답 페이지에서 사용할 수 있게 하는 것*** 이다. 그렇기 때문에 `a.jsp` 에서 분명히 data 라는 이름의 input tag가 있었음에도 불구하고, 그 정보는 응답 페이지 `to1.jsp` 를 지나고 난 뒤에는 request로 불러올 수 없기 때문에 `data는 null 입니다` 라는 문구가 뜬다. null인 이유는 `z.jsp`에서 data라는 이름의 parameter 값이 *없기* 때문이다. 
 
 |request range|a.jsp|to1.jsp|z.jsp|
 |--|--|--|--|
@@ -141,7 +135,7 @@ data는 <%=request.getParameter("data")%> 입니다.
 
 ***
 
-[to1.jsp](to1.jsp) 에서 `response.sendRedirect("z.jsp");` 라는 코드 때문에 요청 헤더, 즉 데이터가 교체되었다. 이는 url에서 `~/z.jsp` 라고 되어 있는 것에서 유추할 수 있는데, `response.sendRedirect(url);` 의 처리 과정은 다음과 같다.
+[to1.jsp] 에서 `response.sendRedirect("z.jsp");` 라는 코드 때문에 요청 헤더, 즉 데이터가 교체되었다. 이는 url에서 `~/z.jsp` 라고 되어 있는 것에서 유추할 수 있는데, `response.sendRedirect(url);` 의 처리 과정은 다음과 같다.
 
 |1|2|3|4|
 |-|-|-|-|
@@ -149,7 +143,7 @@ data는 <%=request.getParameter("data")%> 입니다.
 
 결론: **a.jsp 와 z.jsp 는 데이터를 공유하지 않는다**
 
-그렇다면 데이터를 공유하려면 어떻게 해야 할까? 전에 배웠던 forward를 사용하면 된다. [to2.jsp](to2.jsp)처럼 forward를 사용하게 되면 데이터를 공유하면서 페이지 이동이 가능하고, URL이 다음 페이지로 변경되지 않음을 볼 수 있다. 
+그렇다면 데이터를 공유하려면 어떻게 해야 할까? 전에 배웠던 forward를 사용하면 된다. [to2.jsp]처럼 forward를 사용하게 되면 데이터를 공유하면서 페이지 이동이 가능하고, URL이 다음 페이지로 변경되지 않음을 볼 수 있다. 
 ***
 결론적으로, **request와 response는 scope가 굉장히 작다**는 의미로 받아들일 수도 있다. 그렇기 때문에 request 같은 객체를 로그인 혹은 장바구니 같은 기능에 사용해서는 안 될 것이다. 
 
@@ -157,7 +151,6 @@ data는 <%=request.getParameter("data")%> 입니다.
 
 session 은 브라우저 단위로 데이터를 저장한다. 즉 브라우저가 열려져 있는 동안은 데이터가 지속된다. 기본 세션 지속시간은 30분이다.  
 
-[session.jsp](session.jsp)
 ```jsp
 <%
 	if(session.isNew()){
@@ -178,7 +171,6 @@ session 은 브라우저 단위로 데이터를 저장한다. 즉 브라우저�
 
 application의 경우, 서버 scope를 갖고 있으며 scope범위가 가장 크다. 즉, 서버가 꺼지기 전까지는 데이터가 계속 유지된다. 그러나 데이터가 계속 유지되면 웹사이트가 무거워질 수 있으므로, 적합한 scope에 적절한 data를 넣는 것이 가장 중요할 것이다. 
 
-[application.jsp](application.jsp)
 ```jsp
 <%
 	application.setAttribute("uname", "홍길동");
@@ -187,7 +179,6 @@ application의 경우, 서버 scope를 갖고 있으며 scope범위가 가장 �
 <a href="applicationEnd.jsp">결과는?</a>
 ```
 
-[application.jsp](application.jsp)
 ```jsp
 <%
 	int cnt=(Integer)application.getAttribute("cnt");
