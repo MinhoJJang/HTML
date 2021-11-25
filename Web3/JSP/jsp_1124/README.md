@@ -79,9 +79,10 @@ try {
     + `prepareStatement(sql);` 은 SQL문을 미리 컴파일 함으로써 실행 속도를 높일 수 있다. 
 - prepareStatement가 제공하는 메서드를 통해 prepare된 쿼리를 실행한다.
 
-|SELECT|INSERT, UPDATE, DELETE|
-|-|-|
-|`ResultSet rs = pstmt.executeQuery(sql);`|`int cnt = stmt.executeUpdate(sql);`|
+	|SELECT|INSERT, UPDATE, DELETE|
+	|-|-|
+	|`ResultSet rs = pstmt.executeQuery(sql);`|`int cnt = stmt.executeUpdate(sql);`|
+
 - ResultSet로 가져온 값을 조회하는 로직
 ![rs](./image/ResultSet.png)
 	```java
