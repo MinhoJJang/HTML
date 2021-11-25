@@ -11,10 +11,10 @@ public class Test1 {
 
 	public static void main(String[] args) {
 		
-		String driver="oracle.jdbc.driver.OracleDriver";
-		String url="jdbc:oracle:thin:@localhost:1521:xe";
-		String user="kim";
-		String password="1234";
+		String driver="com.mysql.cj.jdbc.Driver";
+		String url="jdbc:mysql://localhost:3306/mhj";
+		String user="mhj";
+		String password="0000";
 		
 		System.out.print("입력: ");
 		Scanner sc=new Scanner(System.in);

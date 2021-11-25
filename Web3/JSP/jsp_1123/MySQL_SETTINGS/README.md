@@ -20,7 +20,9 @@ String password="0000";
 ![MySQL_Connector8](./images/MySQLVersion.png)
 ![ConfigJavaBuildPath](./images/JavaBuildPath.png)
 
-참고로 MySQL Connector 8 로 연결하였고, 이는 Timezone 에러가 발생함. 따라서 아래와 같이 수정
+# 오류발생&해결 
+
+MySQL Connector 8이 호환성이 좋아 연결하였는데, 이는 Timezone 에러가 발생함. 따라서 아래와 같이 수정
 
 `mhj@mhj-IdeaPad:~$ sudo nano /etc/mysql/my.cnf` 로 들어간 뒤 아래와 같이 수정
 
