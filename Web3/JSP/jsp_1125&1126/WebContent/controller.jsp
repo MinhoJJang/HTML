@@ -6,6 +6,7 @@
 <jsp:useBean id="dao" class="model.BoardDAO" />
 <jsp:useBean id="vo" class="model.BoardVO" />
 <jsp:setProperty property="*" name="vo"/>
+
 <%
 	// index C에게 main페이지 요청
 	// C main페이지는 ... 데이터가 있어야되는데...

@@ -1,4 +1,4 @@
-package jsp_1122.Beans;
+package Beans;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

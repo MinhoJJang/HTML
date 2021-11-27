@@ -8,7 +8,8 @@
 	String user="mhj";
 	String password="0000";
 	
-	/* 수정사항 1,2
+	/* 
+	수정사항 1,2
 	mysql에서는 nvl함수를 사용할 수 없다. 
 				FUNCTION mhj.nvl does not exist
 	따라서 ifnull을 사용하고,  
@@ -18,6 +19,7 @@
 		~~ FROM test2 -> ~~ FROM test2 t 
 	이렇게 t 라고 테이블을 특정해주면 해결된다 
 	*/
+	
 	String sql_insert = "insert into test2 values((select ifnull(max(bid),0)+1 from test2 t),?,?)";
 	// nvl(a,b) 는, a를 넣되 a가 null이면 b를 사용해라 라는 의미 
 	String sql_selectAll="select * from test2";  

@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class BoardDAO {
 	
-	// DAO = Data Transfer Object
+	// DAO = Data Access Object
 	// VO = Value Object
 	
 	// 1. DBMS와의 연동(JDBC) => 공통로직
@@ -41,7 +41,6 @@ public class BoardDAO {
 */	
 	String sql_delete = "delete from board where bid =?";
 	String sql_update = "update board set title=?, writer=?, content=? where bid =?";
-	// 이건 과제! 
 	
 	public ArrayList<BoardVO> selectAll(){
 		
@@ -63,7 +62,7 @@ public class BoardDAO {
 				// 게시판 데이터는 rs가 갖고 있으므로 get~(name)을 통해 데이터를 가져온다.
 				
 				datas.add(vo);
-				// 이렇게 가져온 데이터를 호출해야 하니까, 이 데이터들을 vo에 넣은 뒤에 ArrayList<BoardVO> 타입의 데이터들을 add 해준다. 
+				// 이렇게 가져온 데이터를 리턴해야 하니까, 이 데이터들을 vo에 넣은 뒤에 ArrayList<BoardVO> 타입의 데이터들을 add 해준다. 
 			}
 			rs.close(); // rs의 데이터가 더이상 존재하지 않으면 닫아준다. 
 		} catch (SQLException e) {
@@ -86,7 +85,6 @@ public class BoardDAO {
 		
 		// 그래서 input 파라미터로 BoardVO를 사용하자. 
 		// 그러면 데이터를 가져올 때 vo.getBid로 가져오자. 
-		
 		
 		// 한가지 데이터만 리턴하려면, 어떻게 해야 할까? 
 		// 마찬가지로 연결 및 연결해제 과정은 똑같을 것이다.

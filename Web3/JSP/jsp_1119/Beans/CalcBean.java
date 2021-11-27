@@ -1,4 +1,4 @@
-package jsp_1119.Beans;
+package Beans;
 
 public class CalcBean {
 
