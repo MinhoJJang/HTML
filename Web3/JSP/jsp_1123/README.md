@@ -31,7 +31,9 @@ public static void main(String[] args) {
 		}
 ``` 
 
-이렇게 하면 index 페이지의 모든 데이터, 즉 html을 포함한 모든 데이터를 가져온다. 즉, `doc` 이라고 하는 객체는 url 상의 모든 데이터를 갖고 있는 셈이다. 
+이렇게 하면 아래와 같이 index 페이지의 모든 데이터, 즉 html을 포함한 모든 데이터를 가져온다. 즉, `doc` 이라고 하는 객체는 url 상의 모든 데이터를 갖고 있는 셈이다. 
+
+![1](./image/1.png)
 
 이제 우리는 데이터를 '선별해서' 가져올 필요성을 느낄 수 있다. 데이터는 선별되지 않으면 아무런 의미가 없기 때문이다. 따라서, 데이터를 원하는 것만 추출하려면, 바로 저 객채 `doc` 에서 우리가 원하는 데이터의 위치를 알아야 데이터를 가져올 수 있다. 
 
@@ -58,3 +60,30 @@ public static void main(String[] args) {
 
 바로 `doc.select(" ")` 을 사용하면 된다. `" "` 안에는 내가 추출하려는 데이터의 위치, 즉 태그를 입력하면 된다. 저 select 문의 리턴값은 `Elements` 타입이기 때문에, `Elements ele` 라는 객체를 만들어주고 `ele` 에 `h6.title` 에 해당하는 데이터들을 넣어준다. 이렇게 만들면 아래와 같은 결과가 나온다. 
 
+![2](./image/2.png)
+
+그러면 이것들 중에서도 제목만 가져올 수는 없을까? 다음과 같이 `ele` 내부에서 `iterator();` 을 돌리면 된다. 
+
+```java
+	public static void main(String[] args) {
+		String url="https://comic.naver.com/index";
+		// 크롤링대상 url지정
+		
+		try {
+			Document doc=Jsoup.connect(url).get();
+			Elements ele=doc.select("h6.title");
+				
+			Iterator<Element> itr=ele.select("a > span").iterator();
+			while(itr.hasNext()) {
+				System.out.println(itr.next().text());
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+```
+
+저렇게 iterator 을 사용하면, `ele.select(tag)` 부분에 해당하는 모든 정보를 `itr.hasNext()` 가 false 일 때 까지 가져온다. 그래서 저 코드를 실행시키면 아래와 같이 우리가 원했던 정보만 가져올 수 있다. 
+
+![3](./image/3.png)
