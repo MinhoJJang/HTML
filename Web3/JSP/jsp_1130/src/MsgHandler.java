@@ -1,4 +1,4 @@
-package day12;
+package src;
 
 import java.io.IOException;
 
