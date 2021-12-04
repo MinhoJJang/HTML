@@ -15,7 +15,7 @@
 	<option>${v }</option>
 </c:forEach>
 		
-	<!-- 스크립트릿 없이 JSPL사용하기 -->
+	<!-- 스크립트릿 없이 JSTL사용하기 -->
 	</select>
 	<input type="submit" value="캐릭터 선택완료">
 </form>
