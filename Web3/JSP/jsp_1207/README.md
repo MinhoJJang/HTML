@@ -1,0 +1,20 @@
+# memo 
+
+LP : C
+ 어떤 V가 어떤 요청을 하면,
+   어떤 input->어떤 output을 요구하는지?=>V
+      ==메서드 시그니쳐
+ex) 메인페이지.jsp
+   게시글 작성하고, 게시글쓰기버튼을 누름
+   action insertB
+   글내용,로그인(작성자)정보->T/F=>메인페이지.jsp
+   
+1. 특정페이지에서 필요한 버튼의 개수(수행할수있는 요청의 개수)
+2. action 개수와 파라미터 값
+   insertB
+   deleteB
+   updateB(좋아요 버튼)
+   insertR
+   deleteR
+   login/logout
+   회원가입하는 창으로 이동하는 버튼
