@@ -19,6 +19,8 @@
 
 EL 은 Expression Language 의 줄임말으로, 말 그대로 표현을 위한 언어이다. 이는 `<%= %>`, `out.println();` 과 같은 자바코드를 더 이상 사용하지 않고 좀 더 간편하게 출력을 지원하기 위한 도구이다. 자체적으로 아래와 같은  연산식을 지원한다. 
 
+![el](./image/EL연산자.png)
+
 대표적인 EL문은 아래와 같이 사용한다. 
 
 ```jsp
@@ -92,3 +94,8 @@ public class Selection {
 ```
 
 이들을 실행하면 다음과 같은 결과가 나오게 된다. 
+
+![list](./image/showList1.png)
+![result](./image/showResult.png)
+
+## CustomTag
