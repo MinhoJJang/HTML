@@ -8,7 +8,7 @@
 -->
 <html>
 	<head>
-		<title>Generic - Stellar by HTML5 UP</title>
+		<title>글 작성페이지</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -21,7 +21,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1>Generic</h1>
+						<h1>글 작성중...</h1>
 						<p>Ipsum dolor sit amet nullam</p>
 					</header>
 
@@ -30,30 +30,29 @@
 
 						<!-- Content -->
 							<section id="content" class="main">
-								<span class="image main"><img src="images/pic04.jpg" alt="" /></span>			
-<form action="controller.jsp" method="post">
+								<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
+								<form action="controller.jsp" method="post">
 <input type="hidden" name="action" value="insert">
 <table border="1">
 	<tr>
-		<td>Title</td>
+		<td>글 제목</td>
 		<td><input type="text" name="title"></td>
 	</tr>
 	<tr>
-		<td>Content</td>
+		<td>글 내용</td>
 		<td><input type="text" name="content"></td>
 	</tr>
 	<tr>
-		<td>Writer</td>
+		<td>작성자</td>
 		<td><input type="text" name="writer"></td>
 	</tr>
 	<tr>
-		<td colspan="2" align="right"><input type="submit" value="Write It"></td>
+		<td colspan="2" align="right"><input type="submit" value="글 작성하기"></td>
 	</tr>
 </table>
 </form>
-<hr>
 <a href="controller.jsp?action=main">메인페이지로 돌아가기</a>
-									</section>
+							</section>
 
 					</div>
 

@@ -1,6 +1,4 @@
-# MySQL 연결
-
-oracle이 결국 안되서 그냥 MySQL로 진행하기로 하였음.. 
+# MySQL 연결 
 
 참고문서 \
 [Ubuntu용 MySQL설치가이드](https://docs.rackspace.com/support/how-to/install-mysql-server-on-the-ubuntu-operating-system/)\
@@ -22,7 +20,7 @@ String password="0000";
 
 # 오류발생&해결 
 
-MySQL Connector 8이 호환성이 좋아 연결하였는데, 이는 Timezone 에러가 발생함. 따라서 아래와 같이 수정
+`MySQL Connector 8` 이 호환성이 좋아 연결하였는데, 이는 Timezone 에러가 발생함. 따라서 아래와 같이 수정
 
 `mhj@mhj-IdeaPad:~$ sudo nano /etc/mysql/my.cnf` 로 들어간 뒤 아래와 같이 수정
 

@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList,model.BoardVO" errorPage="error.jsp" %>
+    pageEncoding="UTF-8" import="java.util.ArrayList,model.BoardVO" errorPage="error/error.jsp" %>
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
 <jsp:useBean id="dao" class="model.BoardDAO" />
 <jsp:useBean id="vo" class="model.BoardVO" />
 <jsp:setProperty property="*" name="vo"/>
-
 <%
 	// index C에게 main페이지 요청
 	// C main페이지는 ... 데이터가 있어야되는데...
@@ -34,7 +33,7 @@
 		pageContext.forward("board.jsp");
 	}
 	else if(action.equals("insert")){
-		// System.out.println(vo); // ★★★★★
+		System.out.println(vo); // ★★★★★
 		if(dao.insert(vo)){
 			response.sendRedirect("controller.jsp?action=main");
 		}
@@ -47,7 +46,7 @@
 		throw new Exception("delete수행중에 오류발생!");
 	}
 	else if(action.equals("update")){
-		if(dao.update(vo)){ // 이런식으로 CRUD 비즈니스 메서드의 인자로 VO객체를 사용하는 것은 Spring방식임. 매우 중요하다.
+		if(dao.update(vo)){ // CRUD 비즈니스 메서드의 인자로 VO객체를 사용하는것은 Spring식!
 			response.sendRedirect("controller.jsp?action=main");
 		}
 		throw new Exception("update수행중에 오류발생!");

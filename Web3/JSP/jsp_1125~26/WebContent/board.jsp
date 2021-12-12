@@ -9,7 +9,12 @@
 -->
 <html>
 	<head>
-	<script type="text/javascript">
+		<title>글 상세페이지</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script type="text/javascript">
 	function del(){
 		ans=confirm("내용은 복구되지않습니다. 정말 삭제하시겠습니까?");
 		if(ans==true){
@@ -21,11 +26,6 @@
 		}
 	}
 </script>
-		<title>Generic - Stellar by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
 
@@ -34,7 +34,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1>Generic</h1>
+						<h1>상세페이지</h1>
 						<p>Ipsum dolor sit amet nullam</p>
 					</header>
 
@@ -44,7 +44,6 @@
 						<!-- Content -->
 							<section id="content" class="main">
 								<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
-								
 								<form action="controller.jsp" method="post" name="formA">
 <input type="hidden" name="action" value="update">
 <input type="hidden" name="bid" value="<%=data.getBid()%>">
@@ -66,10 +65,8 @@
 	</tr>
 </table>
 </form>
-<hr>
 <a href="controller.jsp?action=main">메인페이지로 돌아가기</a>
-								
-								</section>
+							</section>
 
 					</div>
 
