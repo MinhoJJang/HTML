@@ -14,7 +14,7 @@ public class JNDI {
 		try {
 			initContext = new InitialContext();
 			Context envContext=(Context)initContext.lookup("java:comp/env");
-			DataSource ds=(DataSource)envContext.lookup("jdbc/orcl");
+			DataSource ds=(DataSource)envContext.lookup("jdbc/mysql");
 			conn=ds.getConnection();
 		} catch (Exception e) {
 			System.out.println("JNDI클래스에서 예외발생!");

@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<sql:query var="rs" dataSource="jdbc/orcl">
+<sql:query var="rs" dataSource="jdbc/mysql">
 	select * from member
 </sql:query>
 
