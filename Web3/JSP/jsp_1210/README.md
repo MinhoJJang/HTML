@@ -50,6 +50,7 @@ maxIdle : Connection Pool에 반납할 때 최대로 유지될 수 있는 커넥
 minIdle : 최소한으로 유지할 커넥션 개수
 initialSize : 최소로 getConnection() Method를 통해 커넥션 풀에 채워 넣을 커넥션 개수
 ```
+
 ```xml
 <Resource name="jdbc/mysql" auth="Container" type="javax.sql.DataSource" driverClassName="com.mysql.cj.jdbc.Driver" url="jdbc:mysql://localhost:3306/mhj" username="mhj" password="0000" maxActive="10" maxIdle="5">
     
