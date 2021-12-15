@@ -22,6 +22,7 @@ create table admin(
 --     - 회원 아이디 
 --     - 회원 비밀번호 
 --     - 회원 이메일   
+
 create table member(
     memberNum int primary key ,
     memberName varchar(20) not null,
