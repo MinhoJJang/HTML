@@ -14,6 +14,3 @@
 3. 일련의 액션들이 모두 수행되면 commit()호출
 4. 자동 commit모드로 다시 연결 
 
-***
-
-# Controller Part2 
