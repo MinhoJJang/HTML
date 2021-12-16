@@ -286,4 +286,27 @@ public interface Action {
 
 5. 액션 클래스 생성 
 
-Action을 상속받는 여러 클래스들을 만들어주면 된다. 
+Action을 상속받는 여러 클래스들을 만들어주면 된다. 예를 들어 InsertAction.java 파일을 만들 때 아래와 같이 만들어주면 된다. 
+
+```java
+public class InsertAction implements Action{
+
+	@Override
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		BoardVO vo=new BoardVO();
+		vo.setWriter(request.getParameter("writer"));
+		vo.setContent(request.getParameter("content"));
+		vo.setTitle(request.getParameter("title"));
+		BoardDAO dao=new BoardDAO();
+		dao.insert(vo);
+		
+		ArrayList<BoardVO> datas=dao.selectAll();
+		request.setAttribute("datas", datas);
+		
+		ActionForward forward=new ActionForward();
+		forward.setPath("main.jsp"); 
+		forward.setRedirect(false);
+		return forward;
+	}
+}
+```
