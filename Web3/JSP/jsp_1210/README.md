@@ -101,7 +101,7 @@ initialSize : 최소로 getConnection() Method를 통해 커넥션 풀에 채워
 ```
 ![dbcp](./image/dbcpTest.png)
 
-결과: JNDI 서비를 위한 이름을 등록하면 (jdbc/mysql) 그 이름을 통해 DataSource 객체 확보가 가능하고 그를 통해 연결하여 sql문을 실행할 수 있다. 
+결과: JNDI 서비스를 위한 이름을 등록하면 (jdbc/mysql) 그 이름을 통해 DataSource 객체 확보가 가능하고 그를 통해 연결하여 sql문을 실행할 수 있다. 
 
 ***
 
