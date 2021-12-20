@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- init-method="initMethod" destroy-method="destroyMethod" -->
+	<bean class="test.IPhone" id="iPhone" >
+		<constructor-arg ref="smartWatch"></constructor-arg>
+	</bean>
+<!-- init -> 말그대로 초기화 시 진행할 메서드 
+	destroy -> 객체 삭제 시 진행할 메서드  -->	
+	
+	<bean class="test.AppleWatch" id="appleWatch"/>
+	<bean class="test.SmartWatch" id="smartWatch"/>
+	<bean class="test.GalaxyPhone" id="galaxyPhone" lazy-init="true" scope="singleton"/>
+	<!-- lazy init -> 객체를 사용할 때에만 불러오는 속성  -->
+	
+
+<!-- 여기 이렇게 써놓으면 xml에서 객체생성을 스프링 컨테이너에게 맡길 수 있다. -->
+</beans>
+
+
