@@ -114,8 +114,8 @@ name3: <%= getServletContext().getInitParameter("name3") %>
 </html>
 ```
 
-이 jsp 파일을 실행시키면 아래와 같은 결과가 나온다. 
-![name3](./image/name3.png)
+이 jsp 파일을 실행시키면 아래와 같은 결과가 나온다. \
+![name3](./image/name3.png)\
 
 ***
 
@@ -126,7 +126,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	   out.println("<html><body>name1: "+getInitParameter("name1")+" <br> name2: "+getInitParameter("name2")+" <hr> name3: "+getServletContext().getInitParameter("name3")+" </body></html>");
    }
 ```
-![name123](./image/name123.png)
+![name123](./image/name123.png)\
 
 
 
@@ -229,18 +229,18 @@ public class TestListner implements ServletContextListener {
 </html>
 ```
 
-![Listner](./image/Listener.png)
+![Listner](./image/Listener.png)\
 
 # Filter
 
 말 그대로 필터역할을 하는 파일이다. 어떠한 특정 파일을 실행하기 전에, 먼저 실행되어 인코딩 같은 설정들을 미리 바꿔주는 역할을 한다. 
 
-필터를 만들면 이런 창이 뜨게 된다. 
-![Filter1](./image/Filter1.png)
-여기서 **Filter mappings**는 Filter의 핵심 부분인데, 바로 **어떤 파일**을 실행하기 전에 이 필터를 작동시킬 것인지 설정하는 부분이다. 이 부분을 자세히 보면 아래와 같은 창이 나온다.
-![Filter2](./image/Filter2.png)
-여기서 `/EncFilter` 라고 되어 있는 부분을 아래와 같이 바꾸면, .jsp로 끝나는 모든 파일에 대해 이 필터가 작동할 것이다. 
-![Filter3](./image/Filter3.png)
+필터를 만들면 이런 창이 뜨게 된다. \
+![Filter1](./image/Filter1.png)\
+여기서 **Filter mappings**는 Filter의 핵심 부분인데, 바로 **어떤 파일**을 실행하기 전에 이 필터를 작동시킬 것인지 설정하는 부분이다. 이 부분을 자세히 보면 아래와 같은 창이 나온다.\
+![Filter2](./image/Filter2.png)\
+여기서 `/EncFilter` 라고 되어 있는 부분을 아래와 같이 바꾸면, .jsp로 끝나는 모든 파일에 대해 이 필터가 작동할 것이다. \
+![Filter3](./image/Filter3.png)\
 
 이렇게 필터 파일을 만든 뒤, 이 필터를 실습하기 위한 html, jsp파일을 만들어보자. 
 
@@ -332,9 +332,9 @@ public class EncFilter implements Filter {
 </html>
 ```
 
-이렇게 만든 파일을 실행시키면 아래와 같은 결과가 나온다.
+이렇게 만든 파일을 실행시키면 아래와 같은 결과가 나온다.\
 ![st](./image/start.png)
 
-그리고 입력칸에 한글데이터를 넣고 submit을 해주면, console창에 아래와 같이 filter가 작동된 모습을 볼 수 있고, end.jsp에서 한글깨짐없이 정상적으로 출력되고 있는 모습을 볼 수 있다. 
-![fl](./image/filter작동.png)
+그리고 입력칸에 한글데이터를 넣고 submit을 해주면, console창에 아래와 같이 filter가 작동된 모습을 볼 수 있고, end.jsp에서 한글깨짐없이 정상적으로 출력되고 있는 모습을 볼 수 있다. \
+![fl](./image/filter작동.png)\
 ![end](./image/end.png)
