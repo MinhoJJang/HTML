@@ -217,7 +217,7 @@ String command = uri.substring(cp.length());
 System.out.println(command);
 ```
 이것을 실행시키면, 콘솔창에 아래와 같은 결과가 나온다. 
-```t
+```r
 /day21_C/main.do
 /day21_C
 /main.do
