@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="Page-1" id="52a04d89-c75d-2922-d76d-85b35f80e030">
-        <mxGraphModel dx="941" dy="712" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
+        <mxGraphModel dx="580" dy="1015" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -23,7 +23,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="OLRJJfBK9Faeayl9oiCY-2" value="로그인" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
-                    <mxGeometry x="520" y="610" width="120" height="60" as="geometry"/>
+                    <mxGeometry x="550" y="610" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="OLRJJfBK9Faeayl9oiCY-4" value="팀 소개&amp;nbsp;" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
                     <mxGeometry x="250" y="460" width="120" height="60" as="geometry"/>
@@ -41,7 +41,7 @@
                     <mxGeometry x="90" y="610" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="OLRJJfBK9Faeayl9oiCY-14" value="회원가입" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
-                    <mxGeometry x="710" y="610" width="120" height="60" as="geometry"/>
+                    <mxGeometry x="750" y="610" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="OLRJJfBK9Faeayl9oiCY-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="OLRJJfBK9Faeayl9oiCY-18" target="OLRJJfBK9Faeayl9oiCY-23" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
