@@ -185,7 +185,7 @@ public class DispatcherServlet extends HttpServlet {
 }
 ```
 
-## 
+## Settings
 
 이제 view작업을 위해 jstl을 추가해주자. pom.xml에서 dependency를 추가해주면 된다. 
 ```xml

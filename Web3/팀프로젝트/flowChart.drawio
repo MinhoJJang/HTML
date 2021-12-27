@@ -1,21 +1,9 @@
 <mxfile host="65bd71144e">
     <diagram id="KQcXlzd70Qv0CRkMSW8U" name="Page-1">
-        <mxGraphModel dx="497" dy="870" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" background="none" math="0" shadow="0">
+        <mxGraphModel dx="800" dy="605" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="IJWd2irf18UQ_N3jsgeE-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="IJWd2irf18UQ_N3jsgeE-43" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="259.75" y="150" as="sourcePoint"/>
-                        <mxPoint x="199.75" y="150" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="IJWd2irf18UQ_N3jsgeE-2" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="IJWd2irf18UQ_N3jsgeE-45" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="389" y="150" as="sourcePoint"/>
-                        <mxPoint x="449" y="150" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="IJWd2irf18UQ_N3jsgeE-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="580.5" y="230" as="targetPoint"/>
@@ -74,9 +62,6 @@
                 </mxCell>
                 <mxCell id="IJWd2irf18UQ_N3jsgeE-42" value="&lt;span style=&quot;line-height: 1.1&quot;&gt;&quot;필수 정보들을 입력해 주세요&quot;&lt;/span&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;" parent="1" vertex="1">
                     <mxGeometry x="751.5" y="340" width="120" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="IJWd2irf18UQ_N3jsgeE-43" value="초기화면" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="1" vertex="1">
-                    <mxGeometry x="310" y="100" width="100" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="IJWd2irf18UQ_N3jsgeE-45" value="회원가입" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" parent="1" vertex="1">
                     <mxGeometry x="520.5" y="120" width="120" height="60" as="geometry"/>
