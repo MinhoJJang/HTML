@@ -2,7 +2,7 @@
 
 이제 우리가 지금까지 사용해왔던 DisaptcherServlet.java 파일과 EncFilter.java 파일과 같은 MVC의 핵심 부분을 스프링 프레임워크에서 기본제공하는 것들로 변경해볼 것이다. 
 
-1. web.xml 설정
+## web.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -44,21 +44,22 @@
   </filter-mapping>
 </web-app>
 ```
+
 이대로 만들고 실행시키면, `/WEB-INF/DispatcherServlet-servlet.xml`이 없다는 문제가 발생한다. 따라서 이것을 만들어주자. 
 
-
-2. DispatcherServlet-servlet.xml 생성 
+## DispatcherServlet-servlet.xml 
 
 기존의 서블릿파일은 삭제해준다. 
 참고로, xml파일의 이름은 web.xml에서 설정한 이름대로 설정해주어야 한다. 
 
 ![ds](./images/DispatcherServlet.png)
 
-3. Controller Interface 삭제 
+## Delete Controller Interface
 
 스프링 프레임워크를 사용하기 위해, 기존 컨트롤러 인터페이스를 삭제시킨다. 그리고 ~~Controller.java 으로 가면 인터페이스가 사라졌으니 오류가 발생한다. 그러나 여기서 Ctrl+Shift+O 를 눌러주면 `import org.springframework.web.servlet.mvc.Controller;` 이 import된다. 또한, 메서드의 반환타입 역시 String에서 `public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) ` 처럼 ModelAndView 타입으로 바뀌게 된다. 
 
-4. ~~Controller.java 파일 수정 
+
+## Update ~~Controller.java Files
 
 예시로 LoginController을 변경해보았다. 
 
@@ -97,3 +98,5 @@ public class LoginController implements Controller{
 	}
 }
 ```
+
+spring_1228과 이어집니다. 
