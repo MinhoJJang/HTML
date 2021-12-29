@@ -1,3 +1,4 @@
+```txt 
 DispatcherServlet == FrontController
     @Autowired
  -> 핸들러매핑클래스
@@ -16,8 +17,9 @@ ViewResolver가 처리완료된 요청들을 맞는 View로 이동시킴!
 C 클래스 implements C
 HM
 VR
+```
 
-### 클라이언트 요청
+# 클라이언트 요청
 -> DS(*.do) -> HM: C검색 -> 요청처리 -> VR -> V 도착!
 
 
