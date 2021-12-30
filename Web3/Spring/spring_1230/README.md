@@ -80,11 +80,13 @@ public void insertBoard(BoardVO vo) {
         <version>1.8.8</version>
     </dependency>
 ```
+
+jar 파일이 제대로 들어왔는지 확인해준다. 
 ![1](./images/1.png)
 
 2. namespace추가 
 
-![]()
+![2](./images/2.png)
 
 3. .xml에 결합관련 설정 작성
 

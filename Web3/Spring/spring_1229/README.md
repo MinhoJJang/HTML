@@ -1,8 +1,5 @@
 ## Controller 로직 순서 
 
-- AOP 맛보기
-- Aspect Oriented Programming (관점 지향 프로그래밍)
-
 1. Controller 인터페이스 생성
 - Spring에서 기본제공하는 Controller으로 변경 
 `import org.springframework.web.servlet.mvc.Controller;`
