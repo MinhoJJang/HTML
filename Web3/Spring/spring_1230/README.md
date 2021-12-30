@@ -59,7 +59,16 @@ public void insertBoard(BoardVO vo) {
 
 3. LogAdvice2.java 생성 후 코드변경
 
-이렇게 만들면, 코드하나하나를 바꿔주어야 하기 때문에 너무 귀찮아진다 . 그래서 AOP가 필요한 것 
+```java
+package com.test.app.common;
+
+public class LogAdvice2 {
+	public void printLog2() {
+		System.out.println("업그레이드 된 로그!");
+	}
+}
+```
+이렇게 만들고 LogAdvice2로 변환하면, Impl로 가서 코드하나하나를 또바꿔주어야 하기 때문에 너무 귀찮아진다... 그래서 AOP가 필요한 것이다.  
 
 ## AOP 사용 순서
 
@@ -77,7 +86,7 @@ public void insertBoard(BoardVO vo) {
     <dependency>
         <groupId>org.aspectj</groupId>
         <artifactId>aspectjweaver</artifactId>
-        <version>1.8.8</version>
+        <version>${org.aspectj-version}</version>
     </dependency>
 ```
 
@@ -102,12 +111,39 @@ jar 파일이 제대로 들어왔는지 확인해준다.
       </aop:aspect>
    </aop:config>
 ```
+만약 LogAdvice2를 호출하고 싶다면..? 아래와 같이 xml 파일 일부만 바꿔주면 된다! bean의 `class=""` 을 바꾸고, class안에 있는 메서드명으로 `method=""` 을 바꿔주면 된다. 
+```xml
+<bean id="la" class="com.test.app.common.LogAdvice2" />
+   <aop:config>
+      <aop:pointcut expression="execution(* com.test.app..*Impl.*(..))" id="aPointcut"/>
+      <aop:aspect ref="la">
+         <aop:before pointcut-ref="bPointcut" method="printLog2"/>
+      </aop:aspect>
+   </aop:config>
+```
 
-- pointcut == (비즈니스 메서드, CRUD)
-    + 표현식
-    + 이름
+## AOP Keywords
 
-- aspect 
-    + pointcut
-    + 횡단관심 
+1. joinpoint
+    + 포인트컷 후보(모든 비즈니스 메서드가 후보임)
+    + 횡단관심에게 선택된 메서드를 포인트컷이라고 한다. 
 
+2. pointcut == (비즈니스 메서드, CRUD)
+    + expression + id 
+
++ pointcut 분류
+보통 크게 두개로 분류한다. 
+    - CUD : 보안, 
+    - R : 로깅정도만..
+|Create, Update, Delete|Read|
+|-|-|
+|`<aop:pointcut expression="execution(* com.test.app..*Impl.*(..))" id="aPointcut"/>`|`<aop:pointcut expression="execution(* com.test.app..*Impl.select*(..))" id="bPointcut"/>`|
+
+3. advice == 횡단관심
+
+AOP를 지원하는 컨테이너에 의해 결합될 수 있으므로 별도의 클래스로 지정된다. 
+
+4. aspect 
+pointcut과 횡단관심의 결합된 형태
+
+즉, 조인포인트들 중에서 선택된 포인트들을 포인트 컷이라고 하고, 그 포인트컷들을 활용하는 것이 aspect이다. 
