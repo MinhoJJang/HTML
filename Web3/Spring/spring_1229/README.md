@@ -1,4 +1,7 @@
-## 로직 순서 
+## Controller 로직 순서 
+
+- AOP 맛보기
+- Aspect Oriented Programming (관점 지향 프로그래밍)
 
 1. Controller 인터페이스 생성
 - Spring에서 기본제공하는 Controller으로 변경 
@@ -38,7 +41,7 @@ public class MainController implements Controller{
 }
 ```
 
-3. Annotation `@Controller` 추가하여 아래와 같이 변경하면, import되는 Controller이 변함을 볼 수 있다. 
+3. Annotation `@Controller` 추가하여 아래와 같이 변경하면, import되는 Controller이 변하는 것을 볼 수 있다. 
 
 |Before|After|
 |--|--|
