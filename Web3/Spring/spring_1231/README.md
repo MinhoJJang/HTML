@@ -1,4 +1,4 @@
-# Advice가 동작하는 시점
+# Advice가 동작하는 다양한 시점
 
 ## after-returning
 
@@ -39,8 +39,6 @@ Impl 기본 생성자
 BoardVO [bid=18, title=글 제목, writer=글쓰니, content=작성한 내용, bdate=2021-12-31, cnt=0]
 BoardVO [bid=17, title=글 제목, writer=글쓰니, content=작성한 내용, bdate=2021-12-30, cnt=0]
 ```
-다른 것도 마찬가지로 따라하면 잘 작동될 것이다. 
-
 ## after-throwing
 
 비즈니스 메서드 수행중에 예외나 문제가 발생 시에만 수행된다. 
