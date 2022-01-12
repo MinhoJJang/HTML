@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="Page-1" id="52a04d89-c75d-2922-d76d-85b35f80e030">
-        <mxGraphModel dx="580" dy="1015" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
+        <mxGraphModel dx="800" dy="594" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -68,14 +68,8 @@
                 <mxCell id="OLRJJfBK9Faeayl9oiCY-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="OLRJJfBK9Faeayl9oiCY-27" target="OLRJJfBK9Faeayl9oiCY-18" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="OLRJJfBK9Faeayl9oiCY-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="OLRJJfBK9Faeayl9oiCY-27" target="OLRJJfBK9Faeayl9oiCY-29" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
                 <mxCell id="OLRJJfBK9Faeayl9oiCY-27" value="메인페이지" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="450" y="20" width="120" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="OLRJJfBK9Faeayl9oiCY-29" value="추가?" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
-                    <mxGeometry x="90" y="130" width="120" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
