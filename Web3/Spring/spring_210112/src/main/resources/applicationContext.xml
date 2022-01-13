@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+
+	<context:component-scan base-package="com.test.app" />
+	<!-- <bean id="memberService" class="com.test.app.member.impl.MemberServiceImpl">
+		<property name="memberDAO" ref="memberDAO" />
+	</bean>
+	<bean id="memberDAO" class="com.test.app.member.impl.MemberDAO" /> -->
+
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+	<!-- <bean id="aa" class="com.test.app.common.AfterAdvice" />
+	<bean id="ara" class="com.test.app.common.AfterReturningAdvice" />
+	<bean id="ata" class="com.test.app.common.AfterThrowingAdvice" />
+	<bean id="aa2" class="com.test.app.common.AroundAdvice" />
+	<bean id="la" class="com.test.app.common.LogAdvice" />
+	<bean id="la2" class="com.test.app.common.LogAdvice2" />
+	<aop:config>
+		<aop:pointcut expression="execution(* com.test.app..*Impl.*(..))" id="aPointcut"/>
+		<aop:pointcut expression="execution(* com.test.app..*Impl.select*(..))" id="bPointcut"/>
+		
+		<aop:aspect ref="aa2">
+			<aop:around method="aroundLog" pointcut-ref="bPointcut"/>
+		</aop:aspect>
+	</aop:config> -->
+</beans>

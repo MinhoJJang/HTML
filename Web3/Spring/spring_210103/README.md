@@ -99,7 +99,7 @@ public class Test2 {
 ```
 ## AfterReturningAdvice 변경
 
-위에서 살펴본 다운캐스팅과 업캐스팅을 응용하여, 메서드의 파라미터값에 JoinPoint, Object 타입 변수가 들어가도록 세팅하였다. 
+위에서 살펴본 다운캐스팅과 업캐스팅을 응용하여, 메서드의 파라미터값에 JoinPoint, Object 타입 변수가 들어가도록 세팅하였다.  Object obj 와 같은 변수는 바인드 변수와 같은 역할을 수행한다. 
 
 ```java
 package com.test.app.common;
