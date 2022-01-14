@@ -263,32 +263,22 @@ class BoardRowMapper implements RowMapper<BoardVO>{
 
 이때 query를 사용하는 데에는 여러가지가 있다.
 
-```
-- update()
-   insert,update,delete
-   오버로딩되어있음
-    -> 제목,내용,작성자 VS PK
-   sql문에 사용하는 값이 여러개인 경우 VS 1개 경우
-오버로딩 vs 오버라이딩
-함수명 중복정의   메서드 재정의
-- queryForInt()
-   select
-   데이터가 아닌, 정수값을 반환받고싶을때 사용
-- queryForObject()
-   select
-   데이터를 반환받고싶을때 사용
-   RowMapper객체와 "반드시" 함께 사용함!!!!!
-     - 테이블당 1개
-     - 어떤 VO와 매핑될지에 대한 설정
-- query()
-   selectAll
-```
+|메서드명|CRUD|설명|
+|-|-|-|
+|update()|insert,update,delete|`JdbcTemplate.update(String sql, Object... args)`|
+|queryForInt()|select|데이터가 아닌, **정수값**을 반환받고싶을때 사용한다. 
+|queryForObject()|select|데이터를 반환받고 싶을 때 사용한다. 반드시 RowMapper객체와 함께 사용한다. `JdbcTemplate.queryForObject(String sql, Object[] args, RowMapper<BoardVO> rowMapper)`|
+|query()|selectAll|`JdbcTemplate.query(String sql, RowMapper<BoardVO> rowMapper) throws DataAccessException`|
 
 #### 3-2. JdbcTemplate 클래스 <bean> 등록하여 DI 
 
 - applicationContent.xml 파일에 bean 을 추가해준다. 
 ```xml
-
+<!-- 2) JdbcTemplate 클래스 <bean> 등록하여 DI  -->
+   <!-- 설정으로 dataSource객체를 관리할 수 있다.  -->
+   <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+   	<property name="dataSource" ref="dataSource"></property>
+   </bean>
 ```
 
 - 완성코드 
@@ -308,6 +298,7 @@ import com.test.app.board.BoardVO;
 //      1) JdbcDAOSupport 클래스를 상속받아서 구현
 //		2) JdbcTemplate 클래스 <bean> 등록하여 DI 
 
+// extends 로 상속받을 경우, 강제성이 없는 단점이 있다. 이것을 해결하기 위해 2번 방법을 더 자주 사용한다. 
 // JdbcTemplate 클래스 <bean> 등록하여 DI 
 
 @Repository("boardDAO")
@@ -345,8 +336,72 @@ public class BoardDAO3 {
 	     return jdbcTemplate.query(board_selectAll, new BoardRowMapper());
 	 } 
 }
+```
+## application 
 
+MemberDAO도 바꿔보자. 
 
+```java
+package com.test.app.member.impl;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+
+import com.test.app.member.MemberVO;
+
+@Repository("memberDAO")
+public class MemberDAO2 {
+
+   @Autowired
+   private JdbcTemplate jdbcTemplate;
+
+   private String member_selectOne="select * from member where mid=? and password=?";
+
+   public MemberVO selectOne(MemberVO vo) throws Exception{
+      System.out.println("과제 풀이 완료");
+      Object[] obj= {vo.getMid(),vo.getPassword()};
+      return jdbcTemplate.queryForObject(member_selectOne,obj,new MemberRowMapper());
+   }
+}
+class MemberRowMapper implements RowMapper<MemberVO>{
+   @Override
+   public MemberVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+      MemberVO data=new MemberVO();
+      data.setMid(rs.getString("mid"));
+      data.setName(rs.getString("name"));
+      data.setPassword(rs.getString("password"));
+      data.setRole(rs.getString("role"));
+      return data;
+   }
+}
+```
+
+```java
+package com.test.app.member.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.test.app.member.MemberService;
+import com.test.app.member.MemberVO;
+
+@Service("memberService")
+public class MemberServiceImpl implements MemberService   {
+   @Autowired
+   private MemberDAO2 memberDAO;   
+
+   @Override
+   public MemberVO selectOne(MemberVO vo) {
+      try {
+         return memberDAO.selectOne(vo);
+      } catch (Exception e) {
+         return null;
+      }
+   }
+}
 ```
