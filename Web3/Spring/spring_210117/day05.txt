@@ -1,0 +1,46 @@
+@을 이용한 MVC 웹 개발
+
+☆Command 객체
+ -> VO객체를 new,setter
+   단, 파라미터와 멤버변수(속성,프로퍼티)의 이름을 "정확하게" 맞춰주셔야합니다!
+1. 사용자의 입력값을 추출
+2. 객체생성하여,
+3. setter사용
+
+
+doGet(),doPost()... Servlet객체->서블릿 컨테이너
+login.do->login()... LoginController객체->스프링 컨테이너
+
+사용자 요청방식
+1. GET
+2. POST
+
+
+
+
+
+V--나,회원정보를 user라는 이름붙여주었어!-->>C
+M--MemberVO vo객체를 이용중에있어!-->>C
+
+1. V한테가서 user xxx, memberVO o
+§2. V한테 넘겨줄데이터의 이름을 user로 통일시키는작업을 본인이처리!
+
+
+
+
+
+@Controller
+@RequestMapping
+ Command객체☆
+return 문자열; -> .jsp페이지로 이동시켜줌
+
+
+
+
+
++) 회원가입페이지
+   요청
+   C
+   index.jsp
+
+
