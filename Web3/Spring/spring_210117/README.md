@@ -110,11 +110,125 @@ public class DeleteBoardController {
 따라서, 하나의 클래스에 모든 @RequestMapping 을 집어넣어서 파일을 단순화하자. 
 
 ```java
+package com.test.app.board;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.test.app.board.impl.BoardDAO;
+
+@Controller
+public class BoardController {
+
+	@RequestMapping("/board.do")
+	public String board(BoardVO vo,BoardDAO dao,Model model) {
+	
+		model.addAttribute("data", dao.selectOne(vo));
+		return "board.jsp";
+	}
+	@RequestMapping(value="/insertBoard.do")
+	public String insertBoard(BoardVO vo,BoardDAO dao) {
+		
+		dao.insertBoard(vo);
+		return "main.do";
+	}
+	@RequestMapping("/main.do")
+	public String main(BoardVO vo,BoardDAO dao,Model model) {
+
+		model.addAttribute("datas",dao.selectAll(vo));
+		return "main.jsp";
+	}
+	@RequestMapping("/updateBoard.do")
+	public String updateBoard(BoardVO vo,BoardDAO dao) {
+	
+		dao.updateBoard(vo);
+		return "main.do";
+	}
+	@RequestMapping("/deleteBoard.do")
+	public String deleteBoard(BoardVO vo,BoardDAO dao) {
+	
+		dao.deleteBoard(vo);
+		return "main.do";
+	}
+}
 ```
 
-## ++로그인 처리
+## 로그인 Get? Post?
 
-Get 방식과 Post 방식 두가지로 로그인을 동시에 처리할 수 있는 방법? 
+Get 방식과 Post 방식 두가지로 로그인을 동시에 처리할 수 있는 방법이 있다. 
 
+Get 방식이라 함은, 로그인 버튼을 눌러서 로그인 페이지로 들어가면서 사용자 정보를 **가져오는** 것이고, Post 방식은 사용자가 아이디 비밀번호를 입력하고 로그인 버튼을 눌러서 컨트롤러로 데이터를 **보내는** 것이다. 사실 Post방식만 있으면 되지만, Get방식을 추가하여 사용자 데이터를 미리 전달해줄 수 있다. 
 
+```java
+package com.test.app.member;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.test.app.member.impl.MemberDAO;
+
+@Controller
+public class LoginController {
+
+	@RequestMapping(value="/login.do",method=RequestMethod.GET)
+	public String showLogin(@ModelAttribute("user")MemberVO vo) {
+		// 핵심!!!!! @MA를 통해 View 로 user 이라는 이름의 데이터로 vo 데이터를 보낼 수 있음!!!! 
+		System.out.println("Get방식으로 로그인");
+		vo.setMid("mhj");
+		vo.setPassword("0000");
+		return "login.jsp";
+	}
+	@RequestMapping(value="/login.do",method=RequestMethod.POST)
+	public String login(MemberVO vo,MemberDAO dao,HttpSession session) {
+		System.out.println("Post방식으로 로그인");
+		MemberVO data=dao.selectOne(vo);
+		if(data!=null) {
+			session.setAttribute("userName", data.getName());
+			return "main.do";
+		}
+		return "index.jsp";
+	}
+	@RequestMapping("/logout.do")
+	public String logout(HttpSession session) {
+
+		session.invalidate();
+		return "index.jsp";
+	}
+}
+```
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login Page</title>
+</head>
+<body>
+
+<form action="login.do" method="post">
+	<table border="1">
+<tr>
+			<td>ID</td>
+			<td><input type="text" name="mid" value="${user.mid }"></td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td><input type="password" name="password"  value="${user.password }"></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right"><input type="submit" value="Login"></td>
+		</tr>
+		
+	</table>	
+</form>
+</body>
+</html>
+```
