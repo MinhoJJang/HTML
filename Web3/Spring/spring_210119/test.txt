@@ -1,0 +1,61 @@
+※2-Layered 아키텍처
+
+클라이언트의 요청 DispatcherServlet이 받음
+      -> 서블릿컨테이너(톰캣)
+DS는 Controller에게 요청을 처리해줘,하며 전달
+   ->Action->인터페이스로 만든 Controller->Spring.MVC에서 제공하는 C->@RequestMapping->C클래스 통합
+   => 스프링컨테이너
+C는 사용자의 요청정보를 추출하여, DAO객체를 사용하여 클라이언트가 요청한 서비스를 처리해줌
+   -> request->매개변수로 전달되는 Command객체(VO,DAO,...)
+   => DAO객체를 "직접"이용 ※문제발생지점
+            : 유지보수 불리
+            -> [비즈니스 컴포넌트](서비스 클래스,ServiceImpl)
+            => C가 사용자의 요청을 처리할때에 비즈니스 컴포넌트를 사용하게할 예정!
+            기대효과: DAO클래스 변경을 보다 빠르고 쉽게 처리가능
+         BSI객체를 통해서 DAO를 호출하여 사용할수있게됨!!!
+   비즈니스 컴포넌트의 입장에서는, 이용자가 C인 상황
+   C의 멤버변수->초기화=>@Autowired로 DI : BSI
+   BSI객체를 이용하여 메서드를 호출, DAO가 불려지게됨!!!!!
+   최종화면 : DAO를 변경해도, C코드에는 변화가 1도없는 모습☆
+   !? BoardController를 만들때 @Autowired에 대한 DI이 실패함!
+            BoardService에 대해서 문제가 발생했음!
+         원인해설: BS객체가 원래(이미) 존재해야 @Autowired가 가능함!!!
+         해결하려면? BS객체를 C를 생성하기 이전에 먼저 new해야함!!!!!
+         => 스프링컨테이너를 먼저 동작시키고, 서블릿컨테이너가 동작하는 형태(DS->C->BS)
+   객체주입시 BoardService타입의 객체가 발견되지않는 문제
+   DI @Autowired   BSImpl
+   => 객체주입의 대상이 되는 객체가 메모리에 적재되어있어야한다!
+          BSImpl      <bean>(.xml) @ == 스프링컨테이너 구동순서에 변화를 주자!
+※ 클라이언트 요청-> DS생성 : DS-servlet.xml -> 스프링컨테이너가 동작 : applicationContext.xml
+   ??? C보다 비즈니스 컴포넌트(==BSI)를 먼저 생성하려면,
+   BSI를위한 또다른 컨테이너를 생성해보자!
+   -> 2-Layered 아키텍쳐☆
+   => ContextLoaderListener : 서블릿컨테이너의 구동을 감지해서, 스프링컨테이너를 하나 추가
+      applicationContext.xml을 참조함
+       x) applicationContext.xml 위치변경 : 원래의 스프링컨테이너에서 문제발생
+       x) applicationContext.xml 복사하여 추가 : 유지보수 불리
+       o) WEB/INF 보고있는데... resources 참조해볼래? -> 설정변경
+
+
+
+"널포인터 익셉션"
+ 보여준 클래스(리소스)코드의 멤버변수격인 한 객체가, new당하지않았다!
+    "컨테이너가 new==객체를 주입할수있도록==DI .xml or @Autowired로 설정"
+   생성자 내부에 멤버변수를 '초기화'할수있는 코드를 작성
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
