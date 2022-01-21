@@ -215,7 +215,7 @@ x) applicationContext.xml 위치변경 : 원래의 스프링컨테이너에서 �
 x) applicationContext.xml 복사하여 추가 : 유지보수 불리
 o) WEB/INF 보고있는데... resources 참조해볼래? -> 설정변경
 
-web.xml에 추가해준다. 
+설정변경? 바로 web.xml에 추가해준다. 
 
 ```xml
 <context-param>
@@ -227,9 +227,13 @@ web.xml에 추가해준다.
 </listener>
 ``` 
 
+## + 오류해결 
+mypage.jsp에서 name값을 한글로 넘겨주었을 때에만 글자가 깨지는 현상이 발생했다. 의외인 점은 같은 update 구문을 실행하는 board_update에서는 한글값이 잘 넘어갔다는 것이다. 따라서 전체적인 인코딩 문제는 아니고, mypage.jsp 에서 값을 Model로 넘길 때 인코딩이 잘못된 것 같았다. 그래서 아래와 같이 수정하여 해결하였다. 
 
-++ 오류: 
+```jsp
+<form action="mypage.do" method="post" accept-charset="UTF-8">
 ```
-심각: 경로 [/day25(0118)]의 컨텍스트 내의 서블릿 [DispatcherServlet]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [Session attribute 'memData' required - not found in session]을(를) 발생시켰습니다.
-org.springframework.web.HttpSessionRequiredException: Session attribute 'memData' required - not found in session
-```
+
+## ++ 오류해결 2 
+
+위의 문제를 해결하고 의문이 남아서 코드를 살펴봤는데, 그냥 charset="EUC-KR"이 문제였다... UTF-8로 바꿔주자. 역시 문제는 멀리있지 않다 ㅠㅠ 

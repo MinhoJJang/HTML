@@ -1,7 +1,43 @@
-# 검색기능 추가 
+# Search + image 
+
+## 검색기능 추가 
+
+1. VO 수정 
+
+```java
+private String searchCondition;
+private String searchContent;
+
++ getters setters 
+```
+
+2. DAO에 sql문 추가 및 로직 수정 
+
+- mysql의 경우 parameter 값의 위치인 `?` 을 인식해야 한다. 그래서 `?`에다가 자꾸 이상한 따옴표같은걸 붙이면 pstmt가 sql을 실행시킬 때 문제가 발생한다. 그래서 sql문에서 `?`양옆에 `%`을 붙이는게 아니라, 문자열이 sql에 들어가기 직전에 `Object[] obj= {"%"+vo.getSearchContent()+"%"};` 이런식으로 붙여줘야 한다. ***이걸몰라서 이틀을 헤멨다...!***
+
+```java
+private String selectW = "select * from newboard where writer like ? order by bid desc";
+private String selectT = "select * from newboard where title like ? order by bid desc";
+
+public List<BoardVO> selectAll(BoardVO vo) {
+		 
+		 String sql = selectT;
+		 
+		 System.out.println(vo.getSearchCondition());
+		 System.out.println(vo.getSearchContent());
+		
+		 if(vo.getSearchCondition().equals("title")) {
+			 sql = selectT;
+		 } else if(vo.getSearchCondition().equals("writer")){
+			sql = selectW;
+		 }	 
+	     Object[] obj= {"%"+vo.getSearchContent()+"%"};
+	     return getJdbcTemplate().query(sql,obj,new BoardRowMapper());
+	 } 
+```
 
 
-# File 추가 
+## File 추가 
 
 1. board.jsp 파일 수정
 ```jsp
@@ -127,3 +163,7 @@ data.setFilepath(rs.getString("filepath"));
 ```jsp
 <img alt="파일업로드 실습" src="${data.filepath}">
 ```
+
+## + 오류 
+
+이상하게 사진이 제대로 출력되지 않는다. 경로는 제대로 들어온다. 어쩌면 읽기 권한이 없기 때문일 수도 있다... 수정해야겠다 
