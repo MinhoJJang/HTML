@@ -63,7 +63,7 @@ public class CommonExceptionHandler {
 <mvc:annotation-driven/>
 ```
 
-혹은, 예외처리 설정을 따로 해줘도 된다. 
+3. 2번을 하지 않을 것이라면 예외처리 설정을 따로 해줘도 된다. 
 ```xml
 <!-- 예외처리 설정 -->
    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
@@ -207,10 +207,11 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class SqlSessionFactoryBean {
    private static SqlSessionFactory sessionFactory=null;
-   // "객체와 무관하게"
+
    static {
       try {
          if(sessionFactory == null) {
+            // mybatis가 reader을 통해 파일을 읽어들인다. 어떤 파일을 읽을 것인지 명시해주자. 
             Reader reader = Resources.getResourceAsReader("sql-map-config.xml");
             sessionFactory=new SqlSessionFactoryBuilder().build(reader);
          }
@@ -226,8 +227,45 @@ public class SqlSessionFactoryBean {
 
 6. DAO 생성 
 
-~~
+SqlSession 타입 객체를 통해서 sql문을 실행시키는 명령을 내릴 수 있다. 
+```java
+package com.test.app.board.impl;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import com.test.app.board.BoardVO;
+import com.test.app.board.SqlSessionFactoryBean;
+
+public class BoardDAO4 {
+   private SqlSession mybatis;
+   public BoardDAO4() {
+      mybatis=SqlSessionFactoryBean.getSqlSessionInstance();
+   }
+   public void insertBoard(BoardVO vo) {
+      mybatis.insert("BoardDAO.insertBoard", vo);
+      mybatis.commit();
+   }
+   public void updateBoard(BoardVO vo) {
+      mybatis.update("BoardDAO.updateBoard", vo);
+      mybatis.commit();
+   }
+   public void deleteBoard(BoardVO vo) {
+      mybatis.delete("BoardDAO.deleteBoard", vo);
+      mybatis.commit();
+   }
+   public List<BoardVO> selectAll(BoardVO vo){
+      return mybatis.selectList("BoardDAO.selectAll", vo);
+   }
+   public BoardVO selectOne(BoardVO vo) {
+      return (BoardVO)mybatis.selectOne("BoardDAO.selectOne", vo);
+   }
+}
+```
+7. BoradClient 실행 
+
 
 ## + 오류발생? 
-
-ClassNotFound.. oracle.jdbc.driver 머시깽이를 못찾는단다... 이유를 알아보자 
+persistenceException?
+ClassNotFound.. oracle.jdbc.driver..? 을 못찾는단다... 이유를 모르겠다.  

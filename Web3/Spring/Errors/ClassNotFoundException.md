@@ -1,7 +1,9 @@
 # java.lang.ClassNotFoundException: org.springframework.web.filter.CharacterEncodingFilter 
 
 (2021/12/28)
+## 발생이유 
 
+파일 복사 시에 일부 파일이 누락된 것으로 보임
 ## 해결법 
 
 Project > properties > Deployment Assembly > add button > java Build Path Entries  선택 그리고 Next
