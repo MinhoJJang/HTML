@@ -3,6 +3,7 @@
 참고문서 \
 [Ubuntu용 MySQL설치가이드](https://docs.rackspace.com/support/how-to/install-mysql-server-on-the-ubuntu-operating-system/)\
 [MySQL설치 세팅 후 유저생성 및 DB생성법](https://dejavuqa.tistory.com/317)\
+[MySQL db password 설정](https://jjeongil.tistory.com/1484)\
 [Eclipse+MySQL연동법](https://pingfanzhilu.tistory.com/entry/JSP-Database-%EC%9D%B4%ED%81%B4%EB%A6%BD%EC%8A%A4-%EC%97%B0%EA%B2%B0)
 
 # MySQL 세팅 
